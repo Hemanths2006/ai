@@ -1,0 +1,429 @@
+:root {
+    --primary-color: #6c63ff;
+    --secondary-color: #4d44db;
+    --accent-color: #00ff88;
+    --error-color: #ff5555;
+    --hacker-green: #00ff41;
+    --matrix-green: #008f11;
+    --light-color: #f8f9fa;
+    --dark-color: #121212;
+    --darker-color: #0a0a0a;
+    --terminal-bg: #0d0208;
+    --terminal-text: #00ff41;
+    --terminal-header: #003b00;
+    --terminal-border: #008f11;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    background-color: var(--darker-color);
+    color: var(--light-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Matrix background effect */
+.matrix-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+/* Auth modal */
+.auth-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.auth-container {
+    background-color: var(--dark-color);
+    border: 1px solid var(--matrix-green);
+    border-radius: 5px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+}
+
+.auth-container h2 {
+    color: var(--hacker-green);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.auth-form .form-group {
+    margin-bottom: 1rem;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--terminal-text);
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #111;
+    border: 1px solid var(--matrix-green);
+    color: var(--hacker-green);
+    font-family: 'Roboto Mono', monospace;
+    border-radius: 3px;
+}
+
+.auth-form input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px rgba(0, 255, 136, 0.3);
+}
+
+.auth-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+}
+
+.auth-btn {
+    background-color: var(--matrix-green);
+    color: black;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
+    border-radius: 3px;
+    transition: var(--transition);
+}
+
+.auth-btn:hover {
+    background-color: var(--hacker-green);
+}
+
+.auth-switch {
+    background: none;
+    border: none;
+    color: var(--hacker-green);
+    cursor: pointer;
+    text-decoration: underline;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.error-message {
+    color: var(--error-color);
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Admin panel */
+.admin-panel {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 100;
+}
+
+.admin-btn {
+    background-color: var(--matrix-green);
+    color: black;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.admin-btn:hover {
+    background-color: var(--hacker-green);
+}
+
+/* Header */
+header {
+    background-color: rgba(13, 2, 8, 0.8);
+    color: var(--hacker-green);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--matrix-green);
+    position: relative;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    color: var(--hacker-green);
+}
+
+.logo-icon {
+    margin-right: 10px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.api-key-container {
+    display: flex;
+    align-items: center;
+}
+
+.api-key-input {
+    background-color: #111;
+    border: 1px solid var(--matrix-green);
+    color: var(--hacker-green);
+    padding: 0.5rem;
+    font-family: 'Roboto Mono', monospace;
+    margin-right: 0.5rem;
+    width: 250px;
+}
+
+.save-api-btn {
+    background-color: var(--matrix-green);
+    color: black;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.save-api-btn:hover {
+    background-color: var(--hacker-green);
+}
+
+/* Main content */
+.main-content {
+    padding: 2rem 0;
+}
+
+/* Terminal style chat */
+.terminal {
+    background-color: var(--terminal-bg);
+    border: 1px solid var(--terminal-border);
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.terminal-header {
+    background-color: var(--terminal-header);
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--terminal-border);
+}
+
+.terminal-title {
+    flex-grow: 1;
+    color: var(--hacker-green);
+    font-weight: bold;
+}
+
+.terminal-controls {
+    display: flex;
+}
+
+.terminal-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+.terminal-btn.close {
+    background-color: #ff5f56;
+}
+
+.terminal-btn.minimize {
+    background-color: #ffbd2e;
+}
+
+.terminal-btn.maximize {
+    background-color: #27c93f;
+}
+
+.terminal-body {
+    padding: 1rem;
+    height: 500px;
+    overflow-y: auto;
+    font-family: 'Roboto Mono', monospace;
+    color: var(--terminal-text);
+}
+
+.terminal-body::-webkit-scrollbar {
+    width: 5px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+    background: var(--terminal-bg);
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+    background: var(--matrix-green);
+}
+
+.prompt {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.prompt-user {
+    color: var(--accent-color);
+    margin-right: 0.5rem;
+}
+
+.prompt-input {
+    flex-grow: 1;
+    background: transparent;
+    border: none;
+    color: var(--terminal-text);
+    font-family: 'Roboto Mono', monospace;
+    caret-color: var(--hacker-green);
+}
+
+.prompt-input:focus {
+    outline: none;
+}
+
+.command {
+    margin-bottom: 1rem;
+    animation: fadeIn 0.5s;
+}
+
+.command-input {
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.command-output {
+    color: var(--terminal-text);
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
+.command-output.error {
+    color: var(--error-color);
+}
+
+.command-output.success {
+    color: var(--hacker-green);
+}
+
+.command-output.system {
+    color: #888;
+}
+
+.command-output.ai {
+    color: var(--terminal-text);
+}
+
+/* Contact button */
+.contact-btn {
+    background-color: transparent;
+    border: 1px solid var(--matrix-green);
+    color: var(--hacker-green);
+    padding: 0.5rem 1rem;
+    font-family: 'Roboto Mono', monospace;
+    cursor: pointer;
+    margin-top: 1rem;
+    width: 100%;
+    transition: var(--transition);
+}
+
+.contact-btn:hover {
+    background-color: var(--matrix-green);
+    color: black;
+}
+
+.contact-message {
+    color: var(--hacker-green);
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    display: none;
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Matrix rain animation */
+@keyframes matrixRain {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .api-key-container {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    
+    .api-key-input {
+        width: 100%;
+        margin-bottom: 0.5rem;
+        margin-right: 0;
+    }
+}
