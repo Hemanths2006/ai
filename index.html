@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZEDS AI Console</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+</head>
+<body>
+    <!-- Matrix background effect -->
+    <div class="matrix-bg" id="matrixBg"></div>
+
+    <!-- Auth Modal -->
+    <div class="auth-modal" id="authModal">
+        <div class="auth-container">
+            <h2>ADMIN LOGIN</h2>
+            <form class="auth-form" id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <div class="auth-actions">
+                    <button type="submit" class="auth-btn">LOGIN</button>
+                </div>
+                <div class="error-message" id="loginError"></div>
+            </form>
+            
+            <button class="contact-btn" id="contactBtn">REQUEST ACCESS</button>
+            <div class="contact-message" id="contactMessage">
+                If you want to access this console, please contact me on Instagram: @iam.hemanth_
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel (shown after login) -->
+    <div class="admin-panel" id="adminPanel" style="display: none;">
+        <button class="admin-btn" id="logoutBtn">LOGOUT</button>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">>_</span>
+                    <span>THEZEDS CONSOLE</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <!-- Terminal Interface -->
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-title">ZEDS TERMINAL</div>
+                    <div class="terminal-controls">
+                        <div class="terminal-btn close"></div>
+                        <div class="terminal-btn minimize"></div>
+                        <div class="terminal-btn maximize"></div>
+                    </div>
+                </div>
+                <div class="terminal-body" id="terminalBody">
+                    <div class="command">
+                        <div class="command-output system">
+                            The Zeds Ai Console v1.0 - Type your query and press Enter
+                        </div>
+                        <div class="command-output system">
+                            Current model: ZEDS_AI/Zed-r1:free | Temperature: 0.7
+                        </div>
+                    </div>
+                    <div class="prompt" id="prompt">
+                        <span class="prompt-user">user@THEZEDSAI:~$</span>
+                        <input type="text" class="prompt-input" id="commandInput" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="apiConfig.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
