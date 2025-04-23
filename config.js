@@ -1,4 +1,5 @@
-// Configuration file
+// config.js
+// Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyA62y4HgqjzR4pUmtFOXhgx3Qilmux1kzk",
     authDomain: "chaa-app.firebaseapp.com",
@@ -14,6 +15,3 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const database = firebase.database();
-
-// Default API key (should be set by user)
-const DEFAULT_API_KEY = null; // Remove any default API key for security
